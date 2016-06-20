@@ -1,0 +1,21 @@
+{
+  "name": "unslash",
+  "version": "1.0.0",
+  "description": "Connect/Express middleware to remove a trailing slash from a url and redirect the request",
+  "main": "index.js",
+  "repository": "sbtoledo/unslash",
+  "keywords": [
+    "slash",
+    "slashes",
+    "trailing",
+    "middleware",
+    "connect",
+    "express",
+    "seo",
+    "redirect",
+    "url",
+    "urls"
+  ],
+  "author": "Saulo Toledo (sbtoledo.github.io)",
+  "license": "MIT"
+}
