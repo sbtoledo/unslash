@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Connect/Express middleware to remove a trailing slash from a url and redirect the request",
   "main": "index.js",
-  "repository": "sbtoledo/unslash",
+  "repository": "https://github.com/stldo/unslash",
   "keywords": [
     "slash",
     "slashes",
@@ -16,6 +16,9 @@
     "url",
     "urls"
   ],
-  "author": "Saulo Toledo (sbtoledo.github.io)",
-  "license": "MIT"
+  "author": "stldo (https://github.com/stldo)",
+  "license": "MIT",
+  "peerDependencies": {
+    "express": "4.x"
+  }
 }

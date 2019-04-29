@@ -1,24 +1,40 @@
-# Unslash
+# unslash
 
-Connect/Express middleware to remove a trailing slash from a url and redirect the request. It will intercept only GET and HEAD requests, and will do a 301 redirect.
+Connect/Express middleware that removes trailing slashes from URLs, redirecting the request.
 
 ## Install
 
 ```bash
-$ npm install unslash
+$ npm install --save unslash
 ```
 
-## Use
+## Usage
 
-Tip: it's better to set Unslash before any other route or middleware.
+Set unslash as a middleware before the routes you want redirected.
 
-```js
-var express = require('express');
-var unslash = require('unslash');
+```javascript
+import express from 'express'
+import unslash from 'unslash'
 
-// Create Express application
-var application = express();
+const app = express()
 
-// Set Unslash as a middleware
-application.use(unslash);
+// Use unslash with default options
+app.use(unslash)
+
+// Use unslash with a specific status
+app.use(unslash({ status: 302 }))
 ```
+
+## Options
+
+### status
+
+Set the HTTP status of the redirection. The default value is `301`.
+
+### methods
+
+An array containing the HTTP methods that should be redirected. The default value is `['GET', 'HEAD']`.
+
+## License
+
+[The MIT License](./LICENSE)

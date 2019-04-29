@@ -1,17 +1,22 @@
-const TRAILING_SLASH_REGEXP = /\/(\?|$)/;
+const TRAILING_SLASHES = /\/+$/
 
-module.exports = function (request, response, next) {
+module.exports = function middleware(request, response, next) {
+  /* Request value will be the middleware configuration */
+  if (!response) {
+    return middleware.bind(request || {})
+  }
+  /* If it's not an acceptable method, ignore the request */
+  else if (!(this.methods || ['GET', 'HEAD']).includes(request.method)) {
+    return next()
+  }
 
-    if ('GET' !== request.method && 'HEAD' !== request.method) {
-        return next();
-    }
+  const url = request.originalUrl.split('?', 2)
 
-    var url = request.originalUrl || request.url;
+  /* If there are no trailing slashes */
+  if (!url[0].endsWith('/')) {
+    return next()
+  }
 
-    if (!TRAILING_SLASH_REGEXP.test(url) || '/' === url.split('?')[0]) {
-        return next();
-    }
-
-    response.redirect(301, url.replace(TRAILING_SLASH_REGEXP, '$1'));
-
-};
+  url[0] = url[0].replace(TRAILING_SLASHES, '')
+  response.redirect(this.status || 302, url.join('?'))
+}.bind({})
