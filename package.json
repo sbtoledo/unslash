@@ -1,7 +1,7 @@
 {
   "name": "unslash",
   "version": "1.1.0",
-  "description": "Connect/Express middleware to remove a trailing slash from a url and redirect the request",
+  "description": "Connect/Express middleware that removes trailing slashes from URLs",
   "main": "index.js",
   "repository": "https://github.com/stldo/unslash",
   "keywords": [
